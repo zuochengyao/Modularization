@@ -1,0 +1,46 @@
+def build_version = [:]
+build_version.compile_sdk = 27
+build_version.min_sdk = 14
+build_version.target_sdk = 27
+build_version.gradle = '3.1.4'
+build_version.code = 1
+build_version.name = '1.0.0'
+
+def dep_version = [:]
+dep_version.support = "27.1.1"
+dep_version.constraint = "1.1.2"
+dep_version.junit = "4.12"
+dep_version.test = "1.0.2"
+dep_version.espresso = "3.0.2"
+
+def support = [:]
+support.design = "com.android.support:design:$dep_version.support"
+support.v4 = "com.android.support:support-v4:$dep_version.support"
+support.v7 = "com.android.support:appcompat-v7:$dep_version.support"
+support.constraint = "com.android.support.constraint:constraint-layout:$dep_version.constraint"
+
+def test = [:]
+test.runner = 'android.support.test.runner.AndroidJUnitRunner'
+test.junit = "junit:junit:$dep_version.junit"
+test.test = "com.android.support.test:runner:$dep_version.test"
+test.espresso = "com.android.support.test.espresso:espresso-core:$dep_version.espresso"
+
+def deps = [:]
+deps.support = support
+deps.test = test
+deps.gradle = "com.android.tools.build:gradle:$build_version.gradle"
+
+
+def static addRepos(RepositoryHandler handler) {
+    handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    handler.google()
+    // jcenter()
+}
+
+ext {
+    isModule = true
+    versions = [:]
+    versions.build = build_version
+    versions.deps = deps
+    addRepositories = this.&addRepos
+}

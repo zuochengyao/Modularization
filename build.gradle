@@ -1,0 +1,19 @@
+buildscript {
+    apply from: 'config.gradle'
+    addRepositories(repositories)
+    dependencies {
+        classpath versions.deps.gradle
+    }
+}
+
+allprojects {
+    addRepositories(repositories)
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+repositories {
+    google()
+}
