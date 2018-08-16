@@ -15,17 +15,11 @@ import com.modularization.common.base.BaseFragment;
  */
 public class HomeFragment extends BaseFragment
 {
-    public HomeFragment()
-    {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         TextView textView = new TextView(getActivity());
-        textView.setText(R.string.hello_blank_fragment);
+        textView.setText(R.string.module_app_fragment_home);
         return textView;
     }
-
 }

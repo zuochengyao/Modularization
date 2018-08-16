@@ -1,9 +1,9 @@
 package com.modularization.common.base;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 
 /**
  * 为所有fragment提供公共的行为与事件

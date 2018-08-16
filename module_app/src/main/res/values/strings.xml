@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Modularization</string>
+    <string name="module_app_name">模块化练习</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="module_app_fragment_home">首页</string>
+    <string name="module_app_fragment_message">消息</string>
+    <string name="module_app_fragment_mine">我的</string>
 </resources>
