@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.modularization.app.R;
-import com.modularization.app.view.fragment.BaseFragment;
+import com.modularization.common.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.

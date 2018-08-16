@@ -1,6 +1,12 @@
 package com.modularization.app.application;
 
-import android.app.Application;
+import com.modularization.common.base.BaseApplication;
 
-public class MainApplication extends Application
-{ }
+public class MainApplication extends BaseApplication
+{
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+    }
+}
