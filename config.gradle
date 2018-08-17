@@ -12,6 +12,9 @@ dep_version.constraint = "1.1.2"
 dep_version.junit = "4.12"
 dep_version.test = "1.0.2"
 dep_version.espresso = "3.0.2"
+dep_version.okio = "1.15.0"
+dep_version.okhttp = "3.11.0"
+dep_version.realm = "5.4.1"
 
 def support = [:]
 support.design = "com.android.support:design:$dep_version.support"
@@ -29,12 +32,14 @@ def deps = [:]
 deps.support = support
 deps.test = test
 deps.gradle = "com.android.tools.build:gradle:$build_version.gradle"
-
+deps.realm = "io.realm:realm-gradle-plugin:$dep_version.realm"
+deps.okio = "com.squareup.okio:okio:$dep_version.okio"
+deps.okhttp = "com.squareup.okhttp3:okhttp:$dep_version.okhttp"
 
 def static addRepos(RepositoryHandler handler) {
     handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     handler.google()
-    // jcenter()
+    // handler.jcenter()
 }
 
 ext {

@@ -77,6 +77,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener
         fragmentTransaction.commit();
     }
 
+    // 切换fragment
     private boolean switchFragment(int itemId)
     {
         boolean flag = true;

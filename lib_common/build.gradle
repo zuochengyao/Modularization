@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion versions.build.compile_sdk
@@ -27,8 +28,11 @@ dependencies {
     api versions.deps.support.v4
     api versions.deps.support.v7
     api versions.deps.support.constraint
-    // JUnit & Test
+    // JUnit
     testImplementation versions.deps.test.junit
     androidTestImplementation versions.deps.test.test
     androidTestImplementation versions.deps.test.espresso
+    // okhttp & okio
+    api versions.deps.okio
+    api versions.deps.okhttp
 }
