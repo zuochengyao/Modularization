@@ -17,6 +17,7 @@ dep_version.okhttp = "3.11.0"
 dep_version.realm = "5.4.1"
 dep_version.glide = "4.7.1"
 dep_version.universal = "1.9.5"
+dep_version.menu = "2.0.0"
 
 def support = [:]
 support.design = "com.android.support:design:$dep_version.support"
@@ -32,6 +33,7 @@ test.espresso = "com.android.support.test.espresso:espresso-core:$dep_version.es
 
 def imageloader = [:]
 imageloader.glide = "com.github.bumptech.glide:glide:$dep_version.glide"
+imageloader.glidecompiler = "com.github.bumptech.glide:compiler:$dep_version.glide"
 imageloader.universal = "com.nostra13.universalimageloader:universal-image-loader:$dep_version.universal"
 
 def deps = [:]
@@ -42,6 +44,7 @@ deps.gradle = "com.android.tools.build:gradle:$build_version.gradle"
 deps.realm = "io.realm:realm-gradle-plugin:$dep_version.realm"
 deps.okio = "com.squareup.okio:okio:$dep_version.okio"
 deps.okhttp = "com.squareup.okhttp3:okhttp:$dep_version.okhttp"
+deps.menu = "com.balysv.materialmenu:material-menu:$dep_version.menu"
 
 def static addRepos(RepositoryHandler handler) {
     handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }

@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.modularization.app.R;
-import com.modularization.app.view.fragment.home.HomeFragment;
-import com.modularization.app.view.fragment.home.MessageFragment;
-import com.modularization.app.view.fragment.home.MineFragment;
+import com.modularization.app.view.fragment.main.HomeFragment;
+import com.modularization.app.view.fragment.main.MessageFragment;
+import com.modularization.app.view.fragment.main.MineFragment;
 import com.modularization.common.base.BaseActivity;
 
 /**

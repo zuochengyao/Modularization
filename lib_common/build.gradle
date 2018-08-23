@@ -32,5 +32,9 @@ dependencies {
     // okhttp & okio
     api versions.deps.okio
     api versions.deps.okhttp
-
+    // Glide
+    api versions.deps.imageloader.glide
+    annotationProcessor versions.deps.imageloader.glidecompiler
+    // Universal-Image-Loader
+    api versions.deps.imageloader.universal
 }

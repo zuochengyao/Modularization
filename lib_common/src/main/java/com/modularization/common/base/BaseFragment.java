@@ -1,7 +1,7 @@
 package com.modularization.common.base;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -10,7 +10,14 @@ import android.support.annotation.Nullable;
  */
 public class BaseFragment extends Fragment
 {
-    protected Activity mContext;
+    protected BaseActivity mContext;
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        this.mContext = (BaseActivity) context;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
@@ -30,5 +37,11 @@ public class BaseFragment extends Fragment
         super.onPause();
     }
 
-
+    /**
+     * 获取宿主Activity
+     */
+    protected BaseActivity getHostActivity()
+    {
+        return mContext;
+    }
 }

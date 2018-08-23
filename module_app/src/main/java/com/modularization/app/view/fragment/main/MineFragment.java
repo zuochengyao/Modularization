@@ -1,4 +1,4 @@
-package com.modularization.app.view.fragment.home;
+package com.modularization.app.view.fragment.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,10 +1,11 @@
-package com.modularization.imageloader.universal;
+package com.modularization.common.imageloader.universal;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
+import com.modularization.imageloader.IImageLoader;
 import com.modularization.imageloader.R;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -12,9 +13,9 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
-public class UniversalManager
+public class UniversalManager implements IImageLoader
 {
     private static final int THREAD_POOL_COUNT = 4; // UniversalImageLoader最大线程数
     private static final int THREAD_PRIORITY = 2; // 图片加载优先级
@@ -38,7 +39,7 @@ public class UniversalManager
                 .memoryCache(new WeakMemoryCache()) // 使用弱引用内存缓存
                 .diskCacheSize(DISK_CACHE_SIZE) // 硬盘缓存大小
                 .diskCacheFileNameGenerator(new Md5FileNameGenerator()) // 使用MD5命名文件
-                .defaultDisplayImageOptions(getDefaultOptions()) // 默认图片加载options
+                .defaultDisplayImageOptions((DisplayImageOptions) getDefaultOptions()) // 默认图片加载options
                 .imageDownloader(new BaseImageDownloader(mContext, TIME_OUT_CONNECTION, TIME_OUT_READ)) // 图片下载器
                 .writeDebugLogs() // debug模式下输出日志
                 .build();
@@ -60,7 +61,8 @@ public class UniversalManager
         return mInstance;
     }
 
-    private DisplayImageOptions getDefaultOptions()
+    @Override
+    public Object getDefaultOptions()
     {
         return new DisplayImageOptions.Builder()
                 .showImageForEmptyUri(R.drawable.image_loading) // 图片地址为空时显示
@@ -72,17 +74,16 @@ public class UniversalManager
                 .build();
     }
 
-    /**
-     * 显示图片
-     * @param uri 图片uri
-     * @param view 待显示的ImageView
-     * @param options options
-     * @param listener 加载时监听器
-     */
-    public void displayImage(String uri, ImageView view, DisplayImageOptions options, ImageLoadingListener listener)
+    @Override
+    public void clear()
+    {
+
+    }
+
+    public void displayImage(String uri, ImageView view, Object options)
     {
         if (mImageLoader != null)
-            mImageLoader.displayImage(uri, view, options, listener);
+            mImageLoader.displayImage(uri, view, (DisplayImageOptions) options, new SimpleImageLoadingListener());
     }
 
 
