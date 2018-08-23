@@ -8,6 +8,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.modularization.common.R;
 import com.modularization.common.imageloader.IImageLoader;
 
 public class GlideManager implements IImageLoader
@@ -44,9 +45,9 @@ public class GlideManager implements IImageLoader
     public Object getDefaultOptions()
     {
         return new RequestOptions()
-                //.placeholder(R.drawable.image_loading) // 占位符：当请求正在执行时被展示
-                //.error(R.drawable.image_failed) // 错误符：在请求永久性失败时展示
-                //.fallback(R.drawable.image_failed) // 后备回调符：在请求的url/model为 null 时展示
+                .placeholder(R.drawable.image_loading) // 占位符：当请求正在执行时被展示
+                .error(R.drawable.image_failed) // 错误符：在请求永久性失败时展示
+                .fallback(R.drawable.image_failed) // 后备回调符：在请求的url/model为 null 时展示
                 .override(Target.SIZE_ORIGINAL) // 缩略图size
                 .skipMemoryCache(false)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -54,8 +55,9 @@ public class GlideManager implements IImageLoader
     }
 
     @Override
-    public void clear()
+    public void clearCache()
     {
-
+        Glide.get(mContext).clearDiskCache();
+        Glide.get(mContext).clearMemory();
     }
 }

@@ -10,9 +10,9 @@
     <application>
         <activity android:name=".base.BaseActivity" />
 
-        <meta-data
-            android:name=".imageloader.glide.GlideApp"
-            android:value="GlideModule" />
+        <!--<meta-data-->
+            <!--android:name=".imageloader.glide.GlideApp"-->
+            <!--android:value="GlideModule" />-->
     </application>
 
 </manifest>

@@ -22,4 +22,8 @@ public class HomeFragment extends BaseFragment
         mContentView = inflater.inflate(R.layout.fragment_home_layout, container, false);
         return mContentView;
     }
+
+    private void doInitView()
+    {
+    }
 }

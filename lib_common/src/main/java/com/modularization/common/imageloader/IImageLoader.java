@@ -14,5 +14,5 @@ public interface IImageLoader
 
     Object getDefaultOptions();
 
-    void clear();
+    void clearCache();
 }
