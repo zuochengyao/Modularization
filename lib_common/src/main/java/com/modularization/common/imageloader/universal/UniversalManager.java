@@ -5,8 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import com.modularization.imageloader.IImageLoader;
-import com.modularization.imageloader.R;
+import com.modularization.common.imageloader.IImageLoader;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -65,8 +64,8 @@ public class UniversalManager implements IImageLoader
     public Object getDefaultOptions()
     {
         return new DisplayImageOptions.Builder()
-                .showImageForEmptyUri(R.drawable.image_loading) // 图片地址为空时显示
-                .showImageOnFail(R.drawable.image_failed) // 图片加载失败时显示
+                //.showImageForEmptyUri(R.drawable.image_loading) // 图片地址为空时显示
+                //.showImageOnFail(R.drawable.image_failed) // 图片加载失败时显示
                 .cacheInMemory(true) // 设置可以缓存在内存中
                 .cacheOnDisk(true) // 设置可以缓存在硬盘中
                 .bitmapConfig(Bitmap.Config.RGB_565) // 解码类型
