@@ -37,4 +37,6 @@ dependencies {
     annotationProcessor versions.deps.imageloader.glidecompiler
     // Universal-Image-Loader
     api versions.deps.imageloader.universal
+    // Gson
+    api versions.deps.gson
 }

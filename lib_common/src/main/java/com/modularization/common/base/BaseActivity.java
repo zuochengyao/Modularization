@@ -27,12 +27,6 @@ public class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onRestart()
-    {
-        super.onRestart();
-    }
-
-    @Override
     protected void onResume()
     {
         super.onResume();
@@ -42,6 +36,18 @@ public class BaseActivity extends AppCompatActivity
     protected void onPause()
     {
         super.onPause();
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
     }
 
     @Override

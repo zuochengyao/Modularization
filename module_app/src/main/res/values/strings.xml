@@ -4,4 +4,6 @@
     <string name="module_app_fragment_home">首页</string>
     <string name="module_app_fragment_message">消息</string>
     <string name="module_app_fragment_mine">我的</string>
+
+    <string name="module_app_search_hint">请输入关键字</string>
 </resources>

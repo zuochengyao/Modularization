@@ -21,6 +21,7 @@ public class BaseApplication extends Application
     {
         super.onCreate();
         mApplication = this;
+        initApp();
     }
 
     @Override
@@ -40,4 +41,9 @@ public class BaseApplication extends Application
     {
         super.onTrimMemory(level);
     }
+
+    private void initApp()
+    {
+    }
+
 }

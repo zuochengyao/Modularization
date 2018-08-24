@@ -10,6 +10,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 import okhttp3.Call;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -49,7 +50,7 @@ public class OkHttpManager
 
     static
     {
-        okhttp3.OkHttpClient.Builder builder = new okhttp3.OkHttpClient.Builder();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(TIMEOUT_CONNECT, TimeUnit.SECONDS);
         builder.readTimeout(TIMEOUT_READ, TimeUnit.SECONDS);
         builder.writeTimeout(TIMEOUT_WRITE, TimeUnit.SECONDS);
@@ -68,14 +69,14 @@ public class OkHttpManager
         mOkHttpClient = builder.build();
     }
 
-    public static Call SyncRequest(Request request, OkHttpJsonCallback callback)
+    public Call SyncRequest(Request request, OkHttpJsonCallback callback)
     {
         Call call = mOkHttpClient.newCall(request);
         call.enqueue(callback);
         return call;
     }
 
-    public static Response AsyncRequest(Request request) throws IOException
+    public Response AsyncRequest(Request request) throws IOException
     {
         return mOkHttpClient.newCall(request).execute();
     }
