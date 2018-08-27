@@ -33,4 +33,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':lib_common')
     implementation versions.deps.menu
+    implementation versions.deps.circleimageview
 }

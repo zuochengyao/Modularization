@@ -11,13 +11,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.modularization.app.R;
+import com.modularization.app.adapter.CourseAdapter;
 import com.modularization.app.controller.HttpController;
 import com.modularization.app.model.recommend.Recommend;
+import com.modularization.app.model.recommend.RecommendBody;
 import com.modularization.app.model.search.Search;
 import com.modularization.common.base.BaseFragment;
 import com.modularization.common.okhttp.exception.OkHttpException;
 import com.modularization.common.okhttp.listener.OkHttpListener;
 import com.modularization.common.util.Log;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,10 +29,13 @@ import com.modularization.common.util.Log;
 public class HomeFragment extends BaseFragment implements OkHttpListener
 {
     private ListView mDataList;
+    private CourseAdapter mCourseAdapter;
     private ImageView mMenu;
     private ImageView mScanQRCode;
     private TextView mSearchPanel;
     private ImageView mLoading;
+
+    private Recommend mRecommend;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -61,7 +68,13 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
         mLoading.setVisibility(View.GONE);
         if (isSuccess)
         {
-
+            List<RecommendBody> dataList = mRecommend.data.list;
+            if (dataList != null && dataList.size() > 0)
+            {
+                mDataList.setVisibility(View.VISIBLE);
+                mCourseAdapter = new CourseAdapter(mContext, dataList);
+                mDataList.setAdapter(mCourseAdapter);
+            }
         }
         else
         {
@@ -76,7 +89,7 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
         switch (requestId)
         {
             case HttpController.REQUEST_ID_RECOMMEND:
-                Recommend recommend = (Recommend) response;
+                mRecommend = (Recommend) response;
                 break;
             case HttpController.REQUEST_ID_SEARCH:
                 Search search = (Search) response;

@@ -6,4 +6,7 @@
     <string name="module_app_fragment_mine">我的</string>
 
     <string name="module_app_search_hint">请输入关键字</string>
+    <string name="module_app_video">视频</string>
+    <string name="module_app_day_before">天前</string>
+    <string name="module_app_likes">点赞</string>
 </resources>
