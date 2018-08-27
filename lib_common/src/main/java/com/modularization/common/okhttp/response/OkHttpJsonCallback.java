@@ -4,17 +4,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.modularization.common.okhttp.exception.OkHttpException;
 import com.modularization.common.okhttp.listener.OkHttpHandler;
 import com.modularization.common.okhttp.listener.OkHttpListener;
-import com.modularization.common.util.JsonUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 
-import io.realm.Realm;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -44,12 +44,16 @@ public class OkHttpJsonCallback implements Callback
     private Handler mDeliveryHandler; // 消息转发
     private OkHttpListener mListener;
     private Class<?> mClass;
+    private int mRequestId;
+    private Gson gson;
 
     public OkHttpJsonCallback(OkHttpHandler handler)
     {
         this.mClass = handler.mClass;
         this.mListener = handler.mListener;
+        this.mRequestId = handler.mRequestId;
         this.mDeliveryHandler = new Handler(Looper.getMainLooper());
+        this.gson = new GsonBuilder().serializeNulls().create();
     }
 
 
@@ -61,7 +65,7 @@ public class OkHttpJsonCallback implements Callback
             @Override
             public void run()
             {
-                mListener.onFailure(new OkHttpException(ERROR_NETWORK, e));
+                mListener.onFailure(mRequestId, new OkHttpException(ERROR_NETWORK, e));
             }
         });
     }
@@ -84,32 +88,26 @@ public class OkHttpJsonCallback implements Callback
     {
         if (response == null || response.toString().trim().equals(""))
         {
-            mListener.onFailure(new OkHttpException(ERROR_NETWORK, EMPTY_MSG));
+            mListener.onFailure(mRequestId, new OkHttpException(ERROR_NETWORK, EMPTY_MSG));
             return;
         }
         try
         {
             JSONObject result = new JSONObject(response.toString());
             if (this.mClass == null)
-            {
-                mListener.onSuccess(result);
-            }
+                mListener.onSuccess(mRequestId, result);
             else
             {
-                Object object = JsonUtil.parseJsonObjectToModule(result, mClass);
+                Object object = this.gson.fromJson(response.toString(), mClass);
                 if (object != null)
-                {
-                    mListener.onSuccess(object);
-                }
+                    mListener.onSuccess(mRequestId, object);
                 else
-                {
-                    mListener.onFailure(new OkHttpException(ERROR_JSON, response.toString()));
-                }
+                    mListener.onFailure(mRequestId, new OkHttpException(ERROR_JSON, response.toString()));
             }
         }
         catch (JSONException e)
         {
-            mListener.onFailure(new OkHttpException(ERROR_OTHER, e.getMessage()));
+            mListener.onFailure(mRequestId, new OkHttpException(ERROR_OTHER, e.getMessage()));
         }
 
     }

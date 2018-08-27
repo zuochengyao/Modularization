@@ -10,15 +10,17 @@ public class OkHttpHandler
     public OkHttpListener mListener;
     // 待转换对象class类型
     public Class<?> mClass;
+    public int mRequestId;
 
-    public OkHttpHandler(OkHttpListener listener)
+    public OkHttpHandler(OkHttpListener listener, int requestId)
     {
-        this(listener, null);
+        this(listener, requestId, null);
     }
 
-    public OkHttpHandler(OkHttpListener listener, Class<?> clazz)
+    public OkHttpHandler(OkHttpListener listener, int requestId, Class<?> clazz)
     {
         this.mListener = listener;
+        this.mRequestId  = requestId;
         this.mClass = clazz;
     }
 }

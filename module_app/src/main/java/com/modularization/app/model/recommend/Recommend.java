@@ -1,8 +1,8 @@
 package com.modularization.app.model.recommend;
 
-import java.io.Serializable;
+import com.modularization.common.base.BaseModel;
 
-public class Recommend implements Serializable
+public class Recommend extends BaseModel
 {
     public String ecode;
     public String emsg;

@@ -10,14 +10,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.modularization.app.R;
 import com.modularization.app.controller.HttpController;
 import com.modularization.app.model.recommend.Recommend;
+import com.modularization.app.model.search.Search;
 import com.modularization.common.base.BaseFragment;
 import com.modularization.common.okhttp.exception.OkHttpException;
-import com.modularization.common.okhttp.listener.OkHttpHandler;
 import com.modularization.common.okhttp.listener.OkHttpListener;
 import com.modularization.common.util.Log;
 
@@ -32,31 +30,12 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
     private TextView mSearchPanel;
     private ImageView mLoading;
 
-    private OkHttpHandler mHandler;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         mContentView = inflater.inflate(R.layout.fragment_home_layout, container, false);
         doInitView();
         return mContentView;
-    }
-
-    @Override
-    public void onSuccess(Object response)
-    {
-        Gson gson = new GsonBuilder().create();
-        Recommend data = gson.fromJson(response.toString(), Recommend.class);
-        Log.i(getHostActivity().TAG, "onSuccess:data = " + (data.data.list == null));
-        mLoading.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void onFailure(Object reason)
-    {
-        int code = ((OkHttpException) reason).getErrorCode();
-        String msg = ((OkHttpException) reason).getErrorMsg().toString();
-        Log.i(getHostActivity().TAG, "onFailure:" + code + ", " + msg);
     }
 
     private void doInitView()
@@ -69,13 +48,50 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
         // 启动loading数据动画
         AnimationDrawable anim = (AnimationDrawable) mLoading.getDrawable();
         anim.start();
-        mHandler = new OkHttpHandler(this);
         requestData();
     }
 
     private void requestData()
     {
-        HttpController.loadRecommend(mHandler);
+        HttpController.loadRecommend(this, Recommend.class);
     }
 
+    private void refreshUI(boolean isSuccess)
+    {
+        mLoading.setVisibility(View.GONE);
+        if (isSuccess)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    @Override
+    public void onSuccess(int requestId, Object response)
+    {
+        Log.i(getHostActivity().TAG, "onSuccess:data = " + response);
+        switch (requestId)
+        {
+            case HttpController.REQUEST_ID_RECOMMEND:
+                Recommend recommend = (Recommend) response;
+                break;
+            case HttpController.REQUEST_ID_SEARCH:
+                Search search = (Search) response;
+                break;
+        }
+        refreshUI(true);
+
+    }
+
+    @Override
+    public void onFailure(int requestId, OkHttpException reason)
+    {
+        int code = reason.getErrorCode();
+        String msg = reason.getErrorMsg().toString();
+        Log.i(getHostActivity().TAG, "onFailure:" + code + ", " + msg);
+        refreshUI(false);
+    }
 }
