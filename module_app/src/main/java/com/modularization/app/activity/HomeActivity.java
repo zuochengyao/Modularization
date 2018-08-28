@@ -4,9 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -56,14 +54,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener
     {
         mContainer = $(R.id.container_layout);
         mNavigation = $(R.id.bottom_nav);
-        mNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
-        {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item)
-            {
-                return switchFragment(item.getItemId());
-            }
-        });
+        mNavigation.setOnNavigationItemSelectedListener(item -> switchFragment(item.getItemId()));
     }
 
     private void doInitFragment()
@@ -125,7 +116,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener
 
     private void hideFragment(Fragment fragment, FragmentTransaction ft)
     {
-        if (fragment != null)
-            ft.hide(fragment);
+        if (fragment != null) ft.hide(fragment);
     }
 }
