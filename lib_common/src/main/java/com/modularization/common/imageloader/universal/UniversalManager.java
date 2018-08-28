@@ -83,6 +83,12 @@ public class UniversalManager implements IImageLoader
     }
 
     @Override
+    public void displayImage(String uri, ImageView view)
+    {
+        displayImage(uri, view, getDefaultOptions());
+    }
+
+    @Override
     public void displayImage(String uri, ImageView view, Object options)
     {
         if (mImageLoader != null)

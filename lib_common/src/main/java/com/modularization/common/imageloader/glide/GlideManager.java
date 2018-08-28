@@ -36,6 +36,12 @@ public class GlideManager implements IImageLoader
     }
 
     @Override
+    public void displayImage(String uri, ImageView view)
+    {
+        displayImage(uri, view, getDefaultOptions());
+    }
+
+    @Override
     public void displayImage(String uri, ImageView view, Object options)
     {
         Glide.with(mContext).load(uri).apply((RequestOptions) options).thumbnail(0.5f).into(view);

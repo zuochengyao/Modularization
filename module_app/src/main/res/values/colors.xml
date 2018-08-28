@@ -2,9 +2,7 @@
 <resources>
     <!-- white -->
     <color name="white_FFFFFFFF">@android:color/white</color>
-    <color name="white_CCCCCC">#CCCCCC</color>
-    <color name="white_D0D0D0">#D0D0D0</color>
-    <color name="white_BFBFBF">#BFBFBF</color>
+    <color name="white_E3E3E3">#E3E3E3</color>
     <!-- black -->
     <color name="black_B0000000">#B0000000</color>
     <color name="black_333333">#333333</color>
@@ -18,6 +16,9 @@
     <color name="blue_3F51B5">#3F51B5</color>
     <color name="blue_303F9F">#303F9F</color>
     <!-- gray -->
+    <color name="gray_D0D0D0">#D0D0D0</color>
+    <color name="gray_CCCCCC">#CCCCCC</color>
+    <color name="gray_BFBFBF">#BFBFBF</color>
     <color name="gray_999999">#999999</color>
 
 </resources>
