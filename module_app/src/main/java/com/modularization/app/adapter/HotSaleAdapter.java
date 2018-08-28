@@ -34,6 +34,7 @@ public class HotSaleAdapter extends PagerAdapter
     @Override
     public int getCount()
     {
+        // 无限循环效果
         return Integer.MAX_VALUE;
     }
 
@@ -56,6 +57,7 @@ public class HotSaleAdapter extends PagerAdapter
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position)
     {
+        // position % mData.size()：数据重复出现
         final RecommendBody value = mData.get(position % mData.size());
         View rootView = mInflate.inflate(R.layout.listitem_hot_sale, null);
         TextView titleView = rootView.findViewById(R.id.title_view);

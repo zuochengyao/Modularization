@@ -164,6 +164,7 @@ public class CourseAdapter extends BaseAdapter
             {
                 List<RecommendBody> list = Utils.handleData(body);
                 mViewHolder.mViewPager.setAdapter(new HotSaleAdapter(mContext, list));
+                // 从比较中间位置开始
                 mViewHolder.mViewPager.setCurrentItem(list.size() * 100);
                 break;
             }
