@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.modularization.app.R;
 import com.modularization.app.model.recommend.RecommendBody;
 import com.modularization.common.imageloader.IImageLoader;
-import com.modularization.common.imageloader.universal.UniversalManager;
+import com.modularization.common.imageloader.glide.GlideManager;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class HotSaleAdapter extends PagerAdapter
         mContext = context;
         mData = list;
         mInflate = LayoutInflater.from(mContext);
-        mImageLoader = UniversalManager.getInstance(mContext);
+        mImageLoader = GlideManager.getInstance(mContext);
     }
 
     @Override

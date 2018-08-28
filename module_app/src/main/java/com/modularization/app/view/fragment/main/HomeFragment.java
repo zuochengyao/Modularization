@@ -16,6 +16,7 @@ import com.modularization.app.controller.HttpController;
 import com.modularization.app.model.recommend.Recommend;
 import com.modularization.app.model.recommend.RecommendBody;
 import com.modularization.app.model.search.Search;
+import com.modularization.app.view.widget.ListRecommendHeader;
 import com.modularization.common.base.BaseFragment;
 import com.modularization.common.okhttp.exception.OkHttpException;
 import com.modularization.common.okhttp.listener.OkHttpListener;
@@ -34,15 +35,32 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
     private ImageView mScanQRCode;
     private TextView mSearchPanel;
     private ImageView mLoading;
+    private ListRecommendHeader recommendHeader;
 
     private Recommend mRecommend;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        mContentView = inflater.inflate(R.layout.fragment_home_layout, container, false);
+        mContentView = inflater.inflate(R.layout.fragment_home, container, false);
         doInitView();
         return mContentView;
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        if (recommendHeader != null)
+            recommendHeader.onStart();
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        if (recommendHeader != null)
+            recommendHeader.onStop();
     }
 
     private void doInitView()
@@ -72,6 +90,8 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
             if (dataList != null && dataList.size() > 0)
             {
                 mDataList.setVisibility(View.VISIBLE);
+                recommendHeader = new ListRecommendHeader(mContext, mRecommend.data.head);
+                mDataList.addHeaderView(recommendHeader);
                 mCourseAdapter = new CourseAdapter(mContext, dataList);
                 mDataList.setAdapter(mCourseAdapter);
             }

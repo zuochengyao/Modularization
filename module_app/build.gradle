@@ -39,4 +39,5 @@ dependencies {
     implementation project(':lib_common')
     implementation versions.deps.menu
     implementation versions.deps.circleimageview
+    implementation versions.deps.banner
 }
