@@ -1,13 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/blue_3F51B5</item>
-        <item name="colorPrimaryDark">@color/blue_303F9F</item>
-        <item name="colorAccent">@color/red_FF4081</item>
-    </style>
-
     <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>

@@ -62,7 +62,7 @@ public class HotSaleAdapter extends PagerAdapter
         View rootView = mInflate.inflate(R.layout.listitem_hot_sale, null);
         TextView titleView = rootView.findViewById(R.id.title_view);
         TextView infoView = rootView.findViewById(R.id.info_view);
-        TextView gonggaoView = rootView.findViewById(R.id.gonggao_view);
+        TextView gonggaoView = rootView.findViewById(R.id.notice_view);
         TextView saleView = rootView.findViewById(R.id.sale_num_view);
         ImageView[] imageViews = new ImageView[3];
         imageViews[0] = rootView.findViewById(R.id.image_one);

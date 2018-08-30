@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeDark"  parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_3F51B5</item>
+        <item name="colorPrimaryDark">@color/blue_303F9F</item>
+        <item name="colorAccent">@color/red_FF4081</item>
+
+        <item name="theme_app_logo">@mipmap/ic_launcher</item>
+        <item name="theme_app_logo_round">@mipmap/ic_launcher_round</item>
+
+        <item name="theme_app_fragment_navigation_background">?android:windowBackground</item>
+        <item name="theme_app_fragment_navigation_home_icon">@drawable/ic_fragment_home</item>
+        <item name="theme_app_fragment_navigation_message_icon">@drawable/ic_fragment_message</item>
+        <item name="theme_app_fragment_navigation_mine_icon">@drawable/ic_fragment_mine</item>
+
+        <item name="theme_app_fragment_home_header_background">@color/yellow_E7E003</item>
+        <item name="theme_app_fragment_home_header_menu_icon">@drawable/icon_menu</item>
+        <item name="theme_app_fragment_home_header_qrcode_icon">@drawable/icon_qrcode</item>
+        <item name="theme_app_fragment_home_header_search_background">@drawable/bg_home_search</item>
+
+        <item name="theme_app_list_item_background">@color/white_FFFFFFFF</item>
+        <item name="theme_app_list_item_title_text_color">@color/black_333333</item>
+        <item name="theme_app_list_item_info_text_color">@color/black_333333</item>
+        <item name="theme_app_list_item_footer_text_color">@color/black_333333</item>
+        <item name="theme_app_list_item_price_text_color">@color/red_FFFF4444</item>
+        <item name="theme_app_list_item_notice_text_color">@color/black_333333</item>
+        <item name="theme_app_list_item_notice_drawable_left">@drawable/icon_notice</item>
+        <item name="theme_app_list_item_sale_number_drawable_left">@drawable/icon_follow</item>
+        <item name="theme_app_list_item_video_info_text_color">@color/black_B0000000</item>
+        <item name="theme_app_list_item_from_text_color">@android:color/holo_blue_light</item>
+        <item name="theme_app_list_item_like_text_color">@color/gray_BFBFBF</item>
+        <item name="theme_app_list_item_divider">@color/gray_CCCCCC</item>
+        <item name="theme_app_list_item_newest">@color/blue_FF33B5E5</item>
+    </style>
+</resources>

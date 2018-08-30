@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white_FFFFFFFF">
+                android:background="?theme_app_list_item_background">
 
     <com.youth.banner.Banner
         android:id="@+id/banner"
@@ -16,7 +16,7 @@
         android:layout_below="@id/banner"
         android:gravity="center"
         android:text="@string/module_app_today_newest"
-        android:textColor="@color/blue_FF33B5E5"
+        android:textColor="?theme_app_list_item_newest"
         android:textSize="22sp"/>
 
     <LinearLayout

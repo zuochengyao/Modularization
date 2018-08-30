@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="theme_app_logo" format="reference"/>
+    <attr name="theme_app_logo_round" format="reference"/>
+
+    <attr name="theme_app_fragment_navigation_background" format="reference"/>
+    <attr name="theme_app_fragment_navigation_home_icon" format="reference"/>
+    <attr name="theme_app_fragment_navigation_message_icon" format="reference"/>
+    <attr name="theme_app_fragment_navigation_mine_icon" format="reference"/>
+
+    <attr name="theme_app_fragment_home_header_background" format="reference"/>
+    <attr name="theme_app_fragment_home_header_menu_icon" format="reference"/>
+    <attr name="theme_app_fragment_home_header_qrcode_icon" format="reference"/>
+    <attr name="theme_app_fragment_home_header_search_background" format="reference"/>
+
+    <attr name="theme_app_list_item_background" format="reference"/>
+    <attr name="theme_app_list_item_title_text_color" format="reference"/>
+    <attr name="theme_app_list_item_info_text_color" format="reference"/>
+    <attr name="theme_app_list_item_price_text_color" format="reference"/>
+    <attr name="theme_app_list_item_notice_text_color" format="reference"/>
+    <attr name="theme_app_list_item_notice_drawable_left" format="reference"/>
+    <attr name="theme_app_list_item_sale_number_drawable_left" format="reference"/>
+    <attr name="theme_app_list_item_video_info_text_color" format="reference"/>
+    <attr name="theme_app_list_item_footer_text_color" format="reference"/>
+    <attr name="theme_app_list_item_from_text_color" format="reference"/>
+    <attr name="theme_app_list_item_like_text_color" format="reference"/>
+    <attr name="theme_app_list_item_divider" format="reference"/>
+    <attr name="theme_app_list_item_newest" format="reference"/>
+</resources>
