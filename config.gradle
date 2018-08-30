@@ -21,6 +21,7 @@ dep_version.menu = "2.0.0"
 dep_version.gson = "2.8.5"
 dep_version.circleimageview = "2.2.0"
 dep_version.banner = "1.4.10"
+dep_version.zxing = "3.3.3"
 
 def support = [:]
 support.design = "com.android.support:design:$dep_version.support"
@@ -51,6 +52,7 @@ deps.menu = "com.balysv.materialmenu:material-menu:$dep_version.menu"
 deps.gson = "com.google.code.gson:gson:$dep_version.gson"
 deps.circleimageview = "de.hdodenhof:circleimageview:$dep_version.circleimageview"
 deps.banner = "com.youth.banner:banner:$dep_version.banner"
+deps.zxing = "com.google.zxing:core:$dep_version.zxing"
 
 def static addRepos(RepositoryHandler handler) {
     handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }

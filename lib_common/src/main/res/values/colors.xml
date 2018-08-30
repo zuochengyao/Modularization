@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- white -->
-    <color name="white_FFFFFFFF">@android:color/white</color>
+    <color name="white_FFFFFFFF">@android:color/white</color> <!-- #ffffffff -->
     <color name="white_E3E3E3">#E3E3E3</color>
     <!-- black -->
     <color name="black_B0000000">#B0000000</color>
     <color name="black_333333">#333333</color>
+    <color name="black_60000000">#60000000</color>
     <!-- red -->
     <color name="red_FFFF4444">#FFFF4444</color>
     <color name="red_FF4081">#FF4081</color>
     <!-- yellow -->
     <color name="yellow_E7E003">#E7E003</color>
+    <color name="yellow_C0FFFF00">#C0FFFF00</color>
+    <color name="yellow_FED952">#FED952</color>
     <!-- blue -->
     <color name="blue_FF33B5E5">#FF33B5E5</color>
     <color name="blue_3F51B5">#3F51B5</color>
@@ -20,4 +23,7 @@
     <color name="gray_CCCCCC">#CCCCCC</color>
     <color name="gray_BFBFBF">#BFBFBF</color>
     <color name="gray_999999">#999999</color>
+    <color name="gray_FFC0C0C0">#FFC0C0C0</color>
+    <!-- green -->
+    <color name="green_C000FF00">#C000FF00</color>
 </resources>

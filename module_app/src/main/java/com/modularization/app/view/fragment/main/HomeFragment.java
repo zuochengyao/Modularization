@@ -1,5 +1,6 @@
 package com.modularization.app.view.fragment.main;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,7 +28,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends BaseFragment implements OkHttpListener
+public class HomeFragment extends BaseFragment implements OkHttpListener, View.OnClickListener
 {
     private ListView mDataList;
     private CourseAdapter mCourseAdapter;
@@ -68,6 +69,7 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
         mDataList = $(R.id.list_data);
         mMenu = $(R.id.image_menu);
         mScanQRCode = $(R.id.image_scan_qrcode);
+        mScanQRCode.setOnClickListener(this);
         mSearchPanel = $(R.id.text_search);
         mLoading = $(R.id.image_loading);
         // 启动loading数据动画
@@ -126,5 +128,19 @@ public class HomeFragment extends BaseFragment implements OkHttpListener
         String msg = reason.getErrorMsg().toString();
         Log.i(getHostActivity().TAG, "onFailure:" + code + ", " + msg);
         refreshUI(false);
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.image_scan_qrcode:
+            {
+                Intent intent = new Intent(getHostActivity(), CaptureActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+                break;
+            }
+        }
     }
 }
