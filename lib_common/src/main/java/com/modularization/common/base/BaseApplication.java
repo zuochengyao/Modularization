@@ -2,6 +2,9 @@ package com.modularization.common.base;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.modularization.common.util.Common;
+
 /**
  * @author 左程耀
  *
@@ -44,6 +47,12 @@ public class BaseApplication extends Application
 
     private void initApp()
     {
+        if (Common.isDebug())
+        {
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+        ARouter.init(mApplication);
     }
 
 }

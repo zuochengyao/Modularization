@@ -40,4 +40,7 @@ dependencies {
     implementation versions.deps.menu
     implementation versions.deps.circleimageview
     implementation versions.deps.banner
+    if (!isApplication) {
+        implementation project(':module_qrcode')
+    }
 }

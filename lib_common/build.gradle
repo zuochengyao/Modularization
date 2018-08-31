@@ -44,4 +44,6 @@ dependencies {
     api versions.deps.imageloader.universal
     // Gson
     api versions.deps.gson
+    // ARouter
+    api versions.deps.arouter.api
 }

@@ -1,6 +1,5 @@
 package com.modularization.app.view.fragment.main;
 
-import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.modularization.app.R;
 import com.modularization.app.adapter.CourseAdapter;
 import com.modularization.app.controller.HttpController;
@@ -137,8 +137,7 @@ public class HomeFragment extends BaseFragment implements OkHttpListener, View.O
         {
             case R.id.image_scan_qrcode:
             {
-                Intent intent = new Intent(getHostActivity(), CaptureActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
+                ARouter.getInstance().build("/qrcode/CaptureActivity").navigation();
                 break;
             }
         }

@@ -22,6 +22,8 @@ dep_version.gson = "2.8.5"
 dep_version.circleimageview = "2.2.0"
 dep_version.banner = "1.4.10"
 dep_version.zxing = "3.3.3"
+dep_version.arouter_api = "1.4.0"
+dep_version.arouter_compiler = "1.2.1"
 
 def support = [:]
 support.design = "com.android.support:design:$dep_version.support"
@@ -40,10 +42,15 @@ imageloader.glide = "com.github.bumptech.glide:glide:$dep_version.glide"
 imageloader.glidecompiler = "com.github.bumptech.glide:compiler:$dep_version.glide"
 imageloader.universal = "com.nostra13.universalimageloader:universal-image-loader:$dep_version.universal"
 
+def arouter = [:]
+arouter.api = "com.alibaba:arouter-api:$dep_version.arouter_api"
+arouter.compiler = "com.alibaba:arouter-compiler:$dep_version.arouter_compiler"
+
 def deps = [:]
 deps.support = support
 deps.test = test
 deps.imageloader = imageloader
+deps.arouter = arouter
 deps.gradle = "com.android.tools.build:gradle:$build_version.gradle"
 deps.realm = "io.realm:realm-gradle-plugin:$dep_version.realm"
 deps.okio = "com.squareup.okio:okio:$dep_version.okio"
@@ -61,7 +68,7 @@ def static addRepos(RepositoryHandler handler) {
 }
 
 ext {
-    isModule = true
+    isApplication = false
     versions = [:]
     versions.build = build_version
     versions.deps = deps
