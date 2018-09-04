@@ -30,22 +30,22 @@
     <application
         android:allowBackup="true"
         android:icon="?theme_app_logo"
-        android:label="@string/module_app_name"
+        android:label="@string/module_qrcode"
         android:roundIcon="?theme_app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/ThemeLight">
 
         <activity
-            android:name=".CaptureActivity"
+            android:name=".zxing.CaptureActivity"
             android:clearTaskOnLaunch="true"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <action android:name="com.modularization.qrcode.SCAN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -93,12 +93,12 @@
         </activity>
 
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".zxing.PreferencesActivity"
             android:label="@string/preferences_name"
             android:stateNotNeeded="true"/>
 
         <activity
-            android:name=".encode.EncodeActivity"
+            android:name=".zxing.encode.EncodeActivity"
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="com.modularization.qrcode.ENCODE"/>
@@ -119,7 +119,7 @@
         </activity>
 
         <activity
-            android:name=".book.SearchBookContentsActivity"
+            android:name=".zxing.book.SearchBookContentsActivity"
             android:label="@string/sbc_name"
             android:screenOrientation="sensorLandscape"
             android:stateNotNeeded="true">
@@ -130,7 +130,7 @@
         </activity>
 
         <activity
-            android:name=".share.ShareActivity"
+            android:name=".zxing.share.ShareActivity"
             android:screenOrientation="user"
             android:stateNotNeeded="true">
             <intent-filter>
@@ -140,25 +140,31 @@
         </activity>
 
         <activity
-            android:name=".history.HistoryActivity"
+            android:name=".zxing.history.HistoryActivity"
             android:label="@string/history_title"
             android:stateNotNeeded="true"/>
 
         <activity
-            android:name=".share.BookmarkPickerActivity"
+            android:name=".zxing.share.BookmarkPickerActivity"
             android:label="@string/bookmark_picker_name"
             android:stateNotNeeded="true"/>
 
         <activity
-            android:name=".share.AppPickerActivity"
+            android:name=".zxing.share.AppPickerActivity"
             android:label="@string/app_picker_name"
             android:stateNotNeeded="true"/>
 
         <activity
-            android:name=".HelpActivity"
+            android:name=".zxing.HelpActivity"
             android:label="@string/menu_help"
             android:screenOrientation="user"
             android:stateNotNeeded="true"/>
 
+        <activity android:name=".activity.QRCodeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

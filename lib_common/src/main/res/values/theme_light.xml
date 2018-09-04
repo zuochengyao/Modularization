@@ -7,6 +7,8 @@
 
         <item name="theme_app_logo">@mipmap/ic_launcher</item>
         <item name="theme_app_logo_round">@mipmap/ic_launcher_round</item>
+        <item name="theme_app_qrcode_logo">@mipmap/ic_launcher</item>
+        <item name="theme_app_qrcode_logo_round">@mipmap/ic_launcher_round</item>
 
         <item name="theme_app_fragment_navigation_background">?android:windowBackground</item>
         <item name="theme_app_fragment_navigation_home_icon">@drawable/ic_fragment_home</item>

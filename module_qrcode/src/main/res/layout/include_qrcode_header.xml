@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_FF000000">
+
+    <Button
+        android:id="@id/back_btn"
+        android:layout_width="26dp"
+        android:layout_height="39dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/qrcode_header_back"/>
+
+    <TextView
+        android:id="@id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/module_qrcode_scan"
+        android:textColor="@color/white_FFFFFFFF"
+        android:textSize="18sp"/>
+
+</RelativeLayout>

@@ -2,6 +2,8 @@
 <resources>
     <attr name="theme_app_logo" format="reference"/>
     <attr name="theme_app_logo_round" format="reference"/>
+    <attr name="theme_app_qrcode_logo" format="reference"/>
+    <attr name="theme_app_qrcode_logo_round" format="reference"/>
 
     <attr name="theme_app_fragment_navigation_background" format="reference"/>
     <attr name="theme_app_fragment_navigation_home_icon" format="reference"/>

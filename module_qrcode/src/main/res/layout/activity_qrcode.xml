@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.QRCodeActivity">
+
+    <SurfaceView
+        android:id="@+id/qrcode_preview_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+        <com.modularization.qrcode.zxing.ViewfinderView
+            android:id="@+id/qrcode_finder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include
+            android:id="@+id/qrcode_header"
+            layout="@layout/include_qrcode_header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"/>
+
+        <include
+            android:id="@+id/qrcode_footer"
+            layout="@layout/include_qrcode_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

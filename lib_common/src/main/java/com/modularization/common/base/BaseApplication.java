@@ -7,7 +7,6 @@ import com.modularization.common.util.Common;
 
 /**
  * @author 左程耀
- *
  * app程序的入口
  */
 public class BaseApplication extends Application
@@ -53,6 +52,6 @@ public class BaseApplication extends Application
             ARouter.openDebug();
         }
         ARouter.init(mApplication);
-    }
 
+    }
 }

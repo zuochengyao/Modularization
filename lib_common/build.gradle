@@ -46,4 +46,8 @@ dependencies {
     api versions.deps.gson
     // ARouter
     api versions.deps.arouter.api
+    // rx series
+    api versions.deps.rx.java
+    api versions.deps.rx.android
+    api versions.deps.rx.permission
 }

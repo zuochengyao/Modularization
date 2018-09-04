@@ -8,4 +8,10 @@
     <string name="module_app_day_before">天前</string>
     <string name="module_app_likes">点赞</string>
     <string name="module_app_today_newest">------------&#062;&#062;今日最新&#060;&#060;------------</string>
+
+    <string name="module_qrcode">二维码</string>
+    <string name="module_qrcode_scan">扫一扫</string>
+    <string name="module_qrcode_album">相册</string>
+    <string name="module_qrcode_flash">闪光灯</string>
+
 </resources>

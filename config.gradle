@@ -8,7 +8,7 @@ build_version.name = '0.0.1'
 
 def dep_version = [:]
 dep_version.support = "27.1.1"
-dep_version.constraint = "1.1.2"
+dep_version.constraint = "1.1.3"
 dep_version.junit = "4.12"
 dep_version.test = "1.0.2"
 dep_version.espresso = "3.0.2"
@@ -24,6 +24,9 @@ dep_version.banner = "1.4.10"
 dep_version.zxing = "3.3.3"
 dep_version.arouter_api = "1.4.0"
 dep_version.arouter_compiler = "1.2.1"
+dep_version.rxjava = "2.2.1"
+dep_version.rxandroid = "2.1.0"
+dep_version.rxpermission = "0.10.2"
 
 def support = [:]
 support.design = "com.android.support:design:$dep_version.support"
@@ -46,11 +49,17 @@ def arouter = [:]
 arouter.api = "com.alibaba:arouter-api:$dep_version.arouter_api"
 arouter.compiler = "com.alibaba:arouter-compiler:$dep_version.arouter_compiler"
 
+def rx = [:]
+rx.java = "io.reactivex.rxjava2:rxjava:$dep_version.rxjava"
+rx.android = "io.reactivex.rxjava2:rxandroid:$dep_version.rxandroid"
+rx.permission = "com.github.tbruyelle:rxpermissions:$dep_version.rxpermission"
+
 def deps = [:]
 deps.support = support
 deps.test = test
 deps.imageloader = imageloader
 deps.arouter = arouter
+deps.rx = rx
 deps.gradle = "com.android.tools.build:gradle:$build_version.gradle"
 deps.realm = "io.realm:realm-gradle-plugin:$dep_version.realm"
 deps.okio = "com.squareup.okio:okio:$dep_version.okio"
@@ -62,13 +71,14 @@ deps.banner = "com.youth.banner:banner:$dep_version.banner"
 deps.zxing = "com.google.zxing:core:$dep_version.zxing"
 
 def static addRepos(RepositoryHandler handler) {
-    handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    handler.maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    handler.maven { url "https://jitpack.io" }
     handler.google()
-    // handler.jcenter()
+    handler.jcenter()
 }
 
 ext {
-    isApplication = false
+    isApplication = true
     versions = [:]
     versions.build = build_version
     versions.deps = deps

@@ -57,6 +57,13 @@ public class HomeFragment extends BaseFragment implements OkHttpListener, View.O
     }
 
     @Override
+    public void onResume()
+    {
+        super.onResume();
+        getHostActivity().requestAppPermission();
+    }
+
+    @Override
     public void onStop()
     {
         super.onStop();
