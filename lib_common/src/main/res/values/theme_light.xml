@@ -7,8 +7,6 @@
 
         <item name="theme_app_logo">@mipmap/ic_launcher</item>
         <item name="theme_app_logo_round">@mipmap/ic_launcher_round</item>
-        <item name="theme_app_qrcode_logo">@mipmap/ic_launcher</item>
-        <item name="theme_app_qrcode_logo_round">@mipmap/ic_launcher_round</item>
 
         <item name="theme_app_fragment_navigation_background">?android:windowBackground</item>
         <item name="theme_app_fragment_navigation_home_icon">@drawable/ic_fragment_home</item>
@@ -33,5 +31,8 @@
         <item name="theme_app_list_item_like_text_color">@color/gray_BFBFBF</item>
         <item name="theme_app_list_item_divider">@color/gray_CCCCCC</item>
         <item name="theme_app_list_item_newest">@color/blue_FF33B5E5</item>
+
+        <!-- Module QRCode-->
+        <item name="theme_qrcode_logo">@mipmap/launcher_icon</item>
     </style>
 </resources>

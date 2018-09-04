@@ -2,8 +2,6 @@
 <resources>
     <attr name="theme_app_logo" format="reference"/>
     <attr name="theme_app_logo_round" format="reference"/>
-    <attr name="theme_app_qrcode_logo" format="reference"/>
-    <attr name="theme_app_qrcode_logo_round" format="reference"/>
 
     <attr name="theme_app_fragment_navigation_background" format="reference"/>
     <attr name="theme_app_fragment_navigation_home_icon" format="reference"/>
@@ -28,4 +26,6 @@
     <attr name="theme_app_list_item_like_text_color" format="reference"/>
     <attr name="theme_app_list_item_divider" format="reference"/>
     <attr name="theme_app_list_item_newest" format="reference"/>
+
+    <attr name="theme_qrcode_logo" format="reference"/>
 </resources>

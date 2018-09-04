@@ -612,7 +612,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         ImageView barcodeImageView = (ImageView) findViewById(R.id.barcode_image_view);
         if (barcode == null)
         {
-            barcodeImageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.launcher_icon));
+            barcodeImageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.launcher_icon));
         }
         else
         {

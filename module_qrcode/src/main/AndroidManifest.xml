@@ -29,7 +29,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="?theme_app_logo"
+        android:icon="?theme_qrcode_logo"
         android:label="@string/module_qrcode"
         android:roundIcon="?theme_app_logo_round"
         android:supportsRtl="true"
@@ -42,10 +42,10 @@
             android:stateNotNeeded="true"
             android:theme="@style/CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
             <intent-filter>
                 <action android:name="com.modularization.qrcode.SCAN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -161,10 +161,10 @@
             android:stateNotNeeded="true"/>
 
         <activity android:name=".activity.QRCodeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
     </application>
 </manifest>
