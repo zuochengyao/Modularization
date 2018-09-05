@@ -132,7 +132,6 @@
             android:screenOrientation="user"
             android:stateNotNeeded="true"/>
 
-        <activity android:name=".activity.QRCodeActivity"/>
     </application>
 
 </manifest>

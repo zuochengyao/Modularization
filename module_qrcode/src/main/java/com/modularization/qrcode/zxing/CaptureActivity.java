@@ -16,7 +16,6 @@
 
 package com.modularization.qrcode.zxing;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -54,6 +53,7 @@ import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
+import com.modularization.common.base.BaseActivity;
 import com.modularization.qrcode.R;
 import com.modularization.qrcode.zxing.camera.CameraManager;
 import com.modularization.qrcode.zxing.clipboard.ClipboardInterface;
@@ -80,11 +80,8 @@ import java.util.Map;
  * @author Sean Owen
  */
 @Route(path = "/qrcode/CaptureActivity")
-public final class CaptureActivity extends Activity implements SurfaceHolder.Callback
+public final class CaptureActivity extends BaseActivity implements SurfaceHolder.Callback
 {
-
-    private static final String TAG = CaptureActivity.class.getSimpleName();
-
     private static final long DEFAULT_INTENT_RESULT_DURATION_MS = 1500L;
     private static final long BULK_MODE_SCAN_DELAY_MS = 1000L;
 
@@ -93,6 +90,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private static final int HISTORY_REQUEST_CODE = 0x0000bacc;
 
     private static final Collection<ResultMetadataType> DISPLAYABLE_METADATA_TYPES = EnumSet.of(ResultMetadataType.ISSUE_NUMBER, ResultMetadataType.SUGGESTED_PRICE, ResultMetadataType.ERROR_CORRECTION_LEVEL, ResultMetadataType.POSSIBLE_COUNTRY);
+
+    private SurfaceView mSurfaceView;
 
     private CameraManager cameraManager;
     private CaptureActivityHandler handler;
@@ -136,7 +135,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.capture);
+        setContentView(R.layout.activity_qrcode);
 
         hasSurface = false;
         inactivityTimer = new InactivityTimer(this);
@@ -161,7 +160,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         // off screen.
         cameraManager = new CameraManager(getApplication());
 
-        viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
+        viewfinderView = (ViewfinderView) findViewById(R.id.qrcode_finder);
         viewfinderView.setCameraManager(cameraManager);
 
         resultView = findViewById(R.id.result_view);
@@ -237,7 +236,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                 {
                     statusView.setText(customPromptMessage);
                 }
-
             }
             else if (dataString != null && dataString.contains("http://www.google") && dataString.contains("/m/products/scan"))
             {
@@ -267,8 +265,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
         }
 
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
-        SurfaceHolder surfaceHolder = surfaceView.getHolder();
+        mSurfaceView = (SurfaceView) findViewById(R.id.qrcode_preview_surface);
+        SurfaceHolder surfaceHolder = mSurfaceView.getHolder();
         if (hasSurface)
         {
             // The activity was paused but not stopped, so the surface still exists. Therefore
@@ -340,8 +338,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         //historyManager = null; // Keep for onActivityResult
         if (!hasSurface)
         {
-            SurfaceView surfaceView = (SurfaceView) findViewById(R.id.preview_view);
-            SurfaceHolder surfaceHolder = surfaceView.getHolder();
+            mSurfaceView = (SurfaceView) findViewById(R.id.qrcode_preview_surface);
+            SurfaceHolder surfaceHolder = mSurfaceView.getHolder();
             surfaceHolder.removeCallback(this);
         }
         super.onPause();
@@ -863,9 +861,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     private void resetStatusView()
     {
-        resultView.setVisibility(View.GONE);
-        statusView.setText(R.string.msg_default_status);
-        statusView.setVisibility(View.VISIBLE);
+//        resultView.setVisibility(View.GONE);
+//        statusView.setText(R.string.msg_default_status);
+//        statusView.setVisibility(View.VISIBLE);
         viewfinderView.setVisibility(View.VISIBLE);
         lastResult = null;
     }

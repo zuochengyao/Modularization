@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -48,8 +49,13 @@ public final class ViewfinderView extends View
     private static final int MAX_RESULT_POINTS = 20;
     private static final int POINT_SIZE = 6;
     private static final int CORNER_WIDTH = 5;
+    private static final int SPEED_DISTANCE = 9;
 
     private int mScreenRate;
+    private int mSlideTop;
+    private int mSlideBottom;
+    private boolean isFirst;
+
     private CameraManager cameraManager;
     private final Paint paint;
     private Bitmap resultBitmap;
@@ -60,7 +66,6 @@ public final class ViewfinderView extends View
     private int scannerAlpha;
     private List<ResultPoint> possibleResultPoints;
     private List<ResultPoint> lastPossibleResultPoints;
-
 
 
     // This constructor is used when the class is built from an XML resource.
@@ -102,6 +107,12 @@ public final class ViewfinderView extends View
         {
             return;
         }
+        if (!isFirst)
+        {
+            isFirst = true;
+            mSlideTop = frame.top;
+            mSlideBottom = frame.bottom;
+        }
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 
@@ -112,25 +123,6 @@ public final class ViewfinderView extends View
         canvas.drawRect(frame.right + 1, frame.top, width, frame.bottom + 1, paint);
         canvas.drawRect(0, frame.bottom + 1, width, height, paint);
 
-        // 蓝色四角框
-        paint.setColor(Color.BLUE);
-        // 绘制第一个小矩形
-        canvas.drawRect(frame.left, frame.top, frame.left + mScreenRate, frame.top + CORNER_WIDTH, paint);
-        canvas.drawRect(frame.left, frame.top, frame.left + CORNER_WIDTH,
-                        frame.top + mScreenRate, paint);
-        canvas.drawRect(frame.right - mScreenRate, frame.top, frame.right,
-                        frame.top + CORNER_WIDTH, paint);
-        canvas.drawRect(frame.right - CORNER_WIDTH, frame.top, frame.right,
-                        frame.top + mScreenRate, paint);
-        canvas.drawRect(frame.left, frame.bottom - CORNER_WIDTH, frame.left
-                + mScreenRate, frame.bottom, paint);
-        canvas.drawRect(frame.left, frame.bottom - mScreenRate, frame.left
-                + CORNER_WIDTH, frame.bottom, paint);
-        canvas.drawRect(frame.right - mScreenRate, frame.bottom
-                - CORNER_WIDTH, frame.right, frame.bottom, paint);
-        canvas.drawRect(frame.right - CORNER_WIDTH, frame.bottom
-                - mScreenRate, frame.right, frame.bottom, paint);
-
         if (resultBitmap != null)
         {
             // Draw the opaque result bitmap over the scanning rectangle
@@ -139,14 +131,37 @@ public final class ViewfinderView extends View
         }
         else
         {
+            // 蓝色四角框
+            paint.setColor(Color.BLUE);
+            // 绘制第一个小矩形
+            canvas.drawRect(frame.left, frame.top, frame.left + mScreenRate, frame.top + CORNER_WIDTH, paint);
+            canvas.drawRect(frame.left, frame.top, frame.left + CORNER_WIDTH, frame.top + mScreenRate, paint);
+            canvas.drawRect(frame.right - mScreenRate, frame.top, frame.right, frame.top + CORNER_WIDTH, paint);
+            canvas.drawRect(frame.right - CORNER_WIDTH, frame.top, frame.right, frame.top + mScreenRate, paint);
+            canvas.drawRect(frame.left, frame.bottom - CORNER_WIDTH, frame.left + mScreenRate, frame.bottom, paint);
+            canvas.drawRect(frame.left, frame.bottom - mScreenRate, frame.left + CORNER_WIDTH, frame.bottom, paint);
+            canvas.drawRect(frame.right - mScreenRate, frame.bottom - CORNER_WIDTH, frame.right, frame.bottom, paint);
+            canvas.drawRect(frame.right - CORNER_WIDTH, frame.bottom - mScreenRate, frame.right, frame.bottom, paint);
+
+            // 每秒移动速度
+            mSlideTop += SPEED_DISTANCE;
+            if (mSlideTop >= mSlideBottom)
+                mSlideTop = frame.top;
+            Rect lineRect = new Rect();
+            lineRect.left = frame.left;
+            lineRect.right = frame.right;
+            lineRect.top = mSlideTop;
+            lineRect.bottom = mSlideTop + 18;
+            canvas.drawBitmap(((BitmapDrawable)getResources().getDrawable(R.drawable.fle)).getBitmap(), null, lineRect, paint);
 
             // Draw a red "laser scanner" line through the middle to show decoding is active
+            /*
             paint.setColor(laserColor);
             paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
             scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
             int middle = frame.height() / 2 + frame.top;
             canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1, middle + 2, paint);
-
+            */
             float scaleX = frame.width() / (float) previewFrame.width();
             float scaleY = frame.height() / (float) previewFrame.height();
 
