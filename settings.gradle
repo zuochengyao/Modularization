@@ -1,1 +1,1 @@
-include ':module_app', ':lib_common', ':module_qrcode'
+include ':module_app', ':lib_common', ':module_qrcode', ':module_socket'

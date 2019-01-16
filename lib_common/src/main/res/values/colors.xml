@@ -3,6 +3,7 @@
     <!-- white -->
     <color name="white_FFFFFFFF">@android:color/white</color> <!-- #ffffffff -->
     <color name="white_E3E3E3">#E3E3E3</color>
+    <color name="white_E5E5E5">#E5E5E5</color>
     <!-- black -->
     <color name="black_FF000000">@android:color/black</color>
     <color name="black_B0000000">#B0000000</color>

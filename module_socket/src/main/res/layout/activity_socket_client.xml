@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SocketClientActivity">
+
+    <Button
+        android:id="@+id/socket_connect_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="建立连接"/>
+
+    <LinearLayout
+        android:id="@+id/socket_message_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+         <EditText
+             android:id="@+id/socket_message_text"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:layout_marginTop="10dp"
+             android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/socket_message_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="发送数据"/>
+    </LinearLayout>
+
+</LinearLayout>

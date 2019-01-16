@@ -1,0 +1,56 @@
+if (isApplication)
+    apply plugin: 'com.android.application'
+else
+    apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion versions.build.compile_sdk
+
+    defaultConfig {
+        if (isApplication) {
+            applicationId "com.modularization.socket"
+            versionCode versions.build.code
+            versionName versions.build.name
+        }
+        minSdkVersion versions.build.min_sdk
+        targetSdkVersion versions.build.target_sdk
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            if (isApplication) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                java {
+                    exclude 'application/**'
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':lib_common')
+}

@@ -14,4 +14,5 @@
     <string name="module_qrcode_album">相册</string>
     <string name="module_qrcode_flash">闪光灯</string>
 
+    <string name="module_socket_name">Socket连接</string>
 </resources>

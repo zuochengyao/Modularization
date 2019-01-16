@@ -5,6 +5,9 @@ buildscript {
         classpath versions.deps.gradle
         classpath versions.deps.realm
     }
+    repositories {
+        google()
+    }
 }
 
 allprojects {

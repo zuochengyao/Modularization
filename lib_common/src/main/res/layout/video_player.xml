@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/video_player_root"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black_FF000000">
+
+    <TextureView
+        android:id="@+id/video_player_texture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:duplicateParentState="true"/>
+
+    <ImageView
+        android:id="@+id/video_player_framing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_E5E5E5"
+        android:scaleType="fitCenter"
+        android:src="@drawable/video_player_error"
+        android:visibility="gone"/>
+    
+    <ImageView
+        android:id="@+id/video_player_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="14dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/video_player_mini"/>
+
+    <Button
+        android:id="@+id/video_player_small_play_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/video_player_play"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/video_player_loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/anim_video_player_loading"/>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.modularization.socket"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="?theme_app_logo"
+        android:label="@string/module_socket_name"
+        android:roundIcon="?theme_app_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/ThemeLight">
+        <activity android:name=".SocketClientActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
